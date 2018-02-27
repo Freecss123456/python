@@ -1,0 +1,6 @@
+import os
+
+'''os.path.join'''
+print(os.path.join('liye','my.tex'[,path]))
+#[result:] liye\3
+
