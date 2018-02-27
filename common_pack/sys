@@ -1,0 +1,4 @@
+import sys
+
+sys.getdefaultencoding()
+#[result(python2):] 'ascii' #[result(python3):] 'utf-8'
