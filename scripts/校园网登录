@@ -1,0 +1,57 @@
+#!/usr/bin/python
+# coding:utf-8
+import requests
+import json
+import codecs
+import base64
+import sys
+import getpass
+
+
+def input_auth_data():
+    while (True):
+        try:
+            username = input('User Name:')
+            password = getpass.getpass('Password:')
+        except Exception:
+            print('Invalid Input, Please try again')
+        else:
+            return username, password
+
+
+def main():
+    username = ''
+    password = ''
+    if len(sys.argv) >= 3:
+        username = sys.argv[1]
+        password = sys.argv[2]
+    else:
+        username, password = input_auth_data()
+    try:
+        base64pass = base64.encodebytes(password.encode())
+    except:
+        base64pass = base64.encodestring(password.encode())
+    login_params = {'enablemacauth': '0', 'username': username, 'password': str(base64pass)[2:-3]}
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/55.0.2883.75 Safari/537.36'}
+    login_url = 'http://w.seu.edu.cn/index.php/index/login'
+
+    response = requests.post(login_url, data=login_params, headers=headers, cookies=None)
+    content = response.content
+    if content[:3] == codecs.BOM_UTF8:
+        content = content[3:]
+        content = content.strip()
+    login_data = json.loads(content.decode())
+    print(login_data)
+    login_flag = False
+    if login_data['status'] == 1 or login_data['info'] == '认证成功':
+        login_flag = True
+    if login_flag is False:
+        print('login fail')
+        exit()
+    print('login succeed')
+
+
+if __name__ == '__main__':
+    main()
