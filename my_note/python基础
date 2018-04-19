@@ -4,6 +4,7 @@ __init__.py 控制着包的导入行为。假如 __init__.py 为空，那么仅�
 >>> import Package1
 >>> Package1.Module1
 报错
+
 在 __init__.py 里把 Module1 预先导入：
 #文件 __init__.py
 import Module1
