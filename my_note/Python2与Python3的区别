@@ -1,0 +1,24 @@
+#Python2和Python3的区别#
+（一）
+Python2： 
+3！=2    True
+3<>2     True
+Python3:
+3!=2     True
+3<>2     弃用
+
+（二）
+Python2： 
+raw_input()
+input()
+Python3:
+保留了input()
+
+（三）
+Python2： 
+range()
+xrange()
+Python3:
+保留了range() (功能与python2的xrange一样)
+
+
