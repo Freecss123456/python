@@ -1,0 +1,20 @@
+Python基础知识
+__init__.py文件
+__init__.py 控制着包的导入行为。假如 __init__.py 为空，那么仅仅导入包是什么都做不了的。
+>>> import Package1
+>>> Package1.Module1
+报错
+在 __init__.py 里把 Module1 预先导入：
+#文件 __init__.py
+import Module1
+
+>>> import Package1
+>>> aa=Package1.Module1
+>>> print aa
+测试通过
+
+变量__all__
+from PackageName import *
+这时 import 就会把注册在包 __init__.py 文件中 __all__ 列表中的子模块和子包导入到当前作用域中来。比如：
+#文件 __init__.py
+__all__ = ["Module1", "Module2", "subPackage1", "subPackage2"]
