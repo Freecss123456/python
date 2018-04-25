@@ -21,4 +21,14 @@ xrange()
 Python3:
 保留了range() (功能与python2的xrange一样)
 
+（四）
+python2：
+619/100
+>>6
+619/100.0
+>>6.19
+python3:
+619/100
+>>6.19
+
 
