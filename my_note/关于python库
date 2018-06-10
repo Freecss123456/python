@@ -1,0 +1,2 @@
+python2.7的串口模块serial的安装
+不能用pip install serial 要用pip install pyserial
