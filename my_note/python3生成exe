@@ -1,0 +1,4 @@
+##用cx-freeze效果最好
+>>pip3 install cx-freeze
+>>cd D:\....\Python36\Scripts
+>>cxfreeze.exe D:\科研\手控器\kf_robot_ly\apriltags_video.py --target-dir dist
